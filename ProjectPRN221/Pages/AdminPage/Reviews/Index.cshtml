@@ -1,0 +1,60 @@
+﻿@page
+@model ProjectPRN221.Pages.AdminPage.Reviews.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Review[0].Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Review[0].ReviewText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Review[0].ReviewDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Review[0].Product)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Review[0].User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Review) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReviewText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReviewDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.ProductId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.UserId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ReviewId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ReviewId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ReviewId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

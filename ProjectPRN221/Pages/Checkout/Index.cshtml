@@ -1,0 +1,226 @@
+﻿@page
+@model CheckoutModel
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<main class="checkout-page">
+    <div class="container">
+        <!-- Breadcrumbs -->
+        <div class="checkout-container">
+            <ul class="breadcrumbs checkout-page__breadcrumbs">
+                <li>
+                    <a href="/" class="breadcrumbs__link">
+                        Home
+                        <img src="/assets/icons/arrow-right.svg" alt="" />
+                    </a>
+                </li>
+                <li>
+                    <a href="#!" class="breadcrumbs__link breadcrumbs__link--current">Checkout</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Checkout content -->
+        <div class="checkout-container">
+            <div class="row gy-xl-3">
+                <div class="col-8 col-xl-12">
+                    <div class="cart-info">
+                        <div class="cart-info__list">
+                            @foreach (var item in Model.CartItems)
+                            {
+                                <article class="cart-item" data-cart-id="@item.CartId">
+                                    <a href="/Products/Details/@item.ProductId">
+                                        <img src="~/assets/img/product/@item.Product.ProductImage" alt="" class="cart-item__thumb" />
+                                    </a>
+                                    <div class="cart-item__content">
+                                        <div class="cart-item__content-left">
+                                            <h3 class="cart-item__title">
+                                                <a href="/Products/Details/@item.ProductId">@item.Product.ProductName</a>
+                                            </h3>
+                                            <p class="cart-item__price-wrap">
+                                                $@item.Product.Price @{/*| <span class="cart-item__status">In Stock</span>*/}
+                                            </p>
+                                            <div class="cart-item__ctrl cart-item__ctrl--md-block">
+                                                <div class="cart-item__input">
+                                                    <button class="cart-item__input-btn decrease-btn">
+                                                        <img class="icon" src="/assets/icons/minus.svg" alt="" />
+                                                    </button>
+                                                    <span class="cart-item__quantity">@item.Quantity</span>
+                                                    <button class="cart-item__input-btn increase-btn">
+                                                        <img class="icon" src="/assets/icons/plus.svg" alt="" />
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cart-item__content-right">
+                                            <p class="cart-item__total-price">$@(item.Product.Price * item.Quantity)</p>
+                                            <div class="cart-item__ctrl">
+                                                <button class="cart-item__ctrl-btn remove-btn">
+                                                    <img src="/assets/icons/trash.svg" alt="" />
+                                                    Delete
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                            }
+                        </div>
+                        <div class="cart-info__bottom d-md-none">
+                            <div class="row">
+                                <div class="col-8 col-xxl-7">
+                                    <div class="cart-info__continue">
+                                        <a href="/" class="cart-info__continue-link">
+                                            <img class="cart-info__continue-icon icon" src="/assets/icons/arrow-down-2.svg" alt="" />
+                                            Continue Shopping
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-xxl-5">
+                                    <div class="cart-info__row">
+                                        <span>Subtotal:</span>
+                                        <span>$@Model.Subtotal</span>
+                                    </div>
+                                    <div class="cart-info__row">
+                                        <span>Shipping:</span>
+                                        <span>$10.00</span>
+                                    </div>
+                                    <div class="cart-info__separate"></div>
+                                    <div class="cart-info__row cart-info__row--bold">
+                                        <span>Total:</span>
+                                        <span>$@(Model.Subtotal + 10)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 col-xl-12">
+                    <div class="cart-info">
+                        <div class="cart-info__row">
+                            <span>Subtotal <span class="cart-info__sub-label">(items)</span></span>
+                            <span>@Model.CartItems.Count</span>
+                        </div>
+                        <div class="cart-info__row">
+                            <span>Price <span class="cart-info__sub-label">(Total)</span></span>
+                            <span>$@Model.Subtotal</span>
+                        </div>
+                        <div class="cart-info__row">
+                            <span>Shipping</span>
+                            <span>$10.00</span>
+                        </div>
+                        <div class="cart-info__separate"></div>
+                        <div class="cart-info__row">
+                            <span>Estimated Total</span>
+                            <span>$@(Model.Subtotal + 10)</span>
+                        </div>
+                        <form method="post" asp-page-handler="Checkout">
+                            <div class="cart-info__row">
+                                <input type="text" id="PhoneNumber" name="PhoneNumber" class="footer__input" placeholder="Phone Number" required />
+                            </div>
+                            <div class="cart-info__row">
+                                <textarea id="ShippingAddress" name="ShippingAddress" class="footer__input" placeholder="Shipping Address" required></textarea>
+                            </div>
+                            <button type="submit" class="cart-info__next-btn btn btn--primary btn--rounded">Continue to checkout</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.increase-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const cartItem = this.closest('.cart-item');
+                const cartId = cartItem.getAttribute('data-cart-id');
+                updateQuantity(cartId, 'increase', cartItem);
+            });
+        });
+
+        document.querySelectorAll('.decrease-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const cartItem = this.closest('.cart-item');
+                const cartId = cartItem.getAttribute('data-cart-id');
+                updateQuantity(cartId, 'decrease', cartItem);
+            });
+        });
+
+        document.querySelectorAll('.remove-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const cartItem = this.closest('.cart-item');
+                const cartId = cartItem.getAttribute('data-cart-id');
+                removeItem(cartId, cartItem);
+            });
+        });
+
+        function updateQuantity(cartId, action, cartItem) {
+            fetch(`/Checkout?handler=UpdateQuantity&cartId=${cartId}&action=${action}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const quantityElement = cartItem.querySelector('.cart-item__quantity');
+                        let newQuantity = parseInt(quantityElement.textContent);
+                        newQuantity = action === 'increase' ? newQuantity + 1 : newQuantity - 1;
+                        quantityElement.textContent = newQuantity;
+
+                        const priceElement = cartItem.querySelector('.cart-item__total-price');
+                        const unitPrice = parseFloat(cartItem.querySelector('.cart-item__price-wrap').textContent.split('$')[1]);
+                        const newTotalPrice = newQuantity * unitPrice;
+                        priceElement.textContent = `$${newTotalPrice.toFixed(2)}`;
+
+                        updateTotals();
+                    } else {
+                        console.error('Error updating quantity:', data.message);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function removeItem(cartId, cartItem) {
+            fetch(`/Checkout?handler=RemoveItem&cartId=${cartId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        cartItem.remove();
+                        updateTotals();
+                    } else {
+                        console.error('Error removing item:', data.message);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function updateTotals() {
+            let subtotal = 0;
+            let itemCount = 0;
+
+            document.querySelectorAll('.cart-item').forEach(item => {
+                const quantity = parseInt(item.querySelector('.cart-item__quantity').textContent);
+                const unitPrice = parseFloat(item.querySelector('.cart-item__price-wrap').textContent.split('$')[1]);
+                subtotal += quantity * unitPrice;
+                itemCount += quantity;
+            });
+
+            const total = subtotal + 10;
+
+            document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('subtotal-right').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+        }
+    });
+</script>

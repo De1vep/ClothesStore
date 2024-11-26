@@ -1,0 +1,200 @@
+﻿@page
+@model OrderHistoryDetailModel
+@{
+    ViewData["Title"] = "OrderHistoryDetail";
+}
+<main class="checkout-page">
+    <div class="container">
+        <!-- Breadcrumbs -->
+        <div class="checkout-container">
+            <ul class="breadcrumbs checkout-page__breadcrumbs">
+                <li>
+                    <a href="/" class="breadcrumbs__link">
+                        Home
+                        <img src="/assets/icons/arrow-right.svg" alt="" />
+                    </a>
+                </li>
+                <li>
+                    <a href="/Orders/OrderList/0" class="breadcrumbs__link">
+                        Order List
+                        <img src="/assets/icons/arrow-right.svg" alt="" />
+                    </a>
+                </li>
+                <li>
+                    <a href="/" class="breadcrumbs__link">
+                        Order Detail
+                        <img src="/assets/icons/arrow-right.svg" alt="" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Checkout content -->
+        <div class="checkout-container">
+            <div class="row gy-xl-3">
+                 <div class="col-4 col-xl-12">
+                    <div class="cart-info">
+                         <div class="cart-info__row">
+                            <span>----------------------------------------- PENDING</span>
+                        </div>
+                         <div class="cart-info__row">
+                           <span>Full Name: </span> <span>@Model.Orderr.User.Fullname</span>
+                        </div>
+                        <div class="cart-info__row">
+                           <span>Order Date: </span> <span>@Model.Orderr.OrderDate</span>
+                        </div>
+                        <div class="cart-info__row">
+                           <span>Phone Number: </span> <span>@Model.Orderr.PhoneNumber</span>
+                        </div>
+                        <div class="cart-info__row">
+                           <span>Shipping Address: </span> <span>@Model.Orderr.ShippingAddress</span>
+                        </div>
+                        <div class="cart-info__row">
+                            <span>Subtotal <span class="cart-info__sub-label">(items)</span></span>
+                            <span>@Model.OrderItems.Count</span>
+                        </div>
+                        <div class="cart-info__row">
+                            <span>Price <span class="cart-info__sub-label">(Total)</span></span>
+                            <span>$@Model.Subtotal</span>
+                        </div>
+                        <div class="cart-info__row">
+                            <span>Shipping</span>
+                            <span>$10.00</span>
+                        </div>
+                        <div class="cart-info__separate"></div>
+                        <div class="cart-info__row">
+                            <span>Estimated Total</span>
+                            <span>$@(Model.Subtotal + 10)</span>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="col-8 col-xl-12">
+                    <div class="cart-info">
+                        <div class="cart-info__list">
+                            @foreach (var item in Model.OrderItems)
+                            {
+                                <article class="cart-item">
+                                    <a href="/Products/DetailsProductToCart?id=@item.ProductId" >
+                                        <img src="~/assets/img/product/@item.Product.ProductImage" alt="" class="cart-item__thumb" />
+                                    </a>
+                                    <div class="cart-item__content">
+                                        <div class="cart-item__content-left">
+                                            <h3 class="cart-item__title">
+                                                <a href="/Products/DetailsProductToCart?id=@item.ProductId">@item.Product.ProductName</a>
+                                            </h3>
+                                            <p class="cart-item__price-wrap">
+                                                @if(item.Order.OrderStatus == "Pending")
+                                                {
+                                                    <span style="color:red">@item.Order.OrderStatus</span>
+                                                }
+                                                else if (item.Order.OrderStatus == "Delivered")
+                                                {
+                                                    <span style="color:forestgreen">@item.Order.OrderStatus</span>
+                                                    <form method="post" asp-page-handler="Rate">
+                                                        <div class="star-rating">
+                                                            <div class="stars">
+                                                                <label class="star"><input type="radio" name="ratingstar" id="ratingstar" value="1" checked></label>
+                                                                <label class="star"><input type="radio" name="ratingstar" id="ratingstar" value="2"></label>
+                                                                <label class="star"><input type="radio" name="ratingstar" id="ratingstar" value="3"></label>
+                                                                <label class="star"><input type="radio" name="ratingstar" id="ratingstar" value="4"></label>
+                                                                <label class="star"><input type="radio" name="ratingstar" id="ratingstar" value="5"></label>
+                                                            </div>
+                                                        </div>
+                                                        <input type="hidden" value="@item.ProductId" name="product" id="product">
+                                                        <input type="hidden" value="@item.OrderId" name="order" id="order">
+                                                        <div style="display: flex;justify-content: center;border: 1px solid;border-color: black; width: 350px; border-radius: 16px;align-items: center;flex-wrap: nowrap;">
+                                                            <input class="rating" type="text" name="rating" id="rating" placeholder="">
+                                                            <button type="submit" class="btn_btn">Send Rating</button>
+                                                        </div>
+                                                    </form>
+                                                }
+                                                else
+                                                {
+                                                    <span style="color:deepskyblue">Shipping</span>
+                                                }
+                                            </p>
+                                            @*<div class="cart-item__ctrl cart-item__ctrl--md-block">
+                                                @item.Order.ShippingAddress 
+                                            </div>*@
+                                        </div>
+                                        <div class="cart-item__content-right">
+                                            <p class="cart-item__total-price">$@(item.Product.Price * item.Quantity)</p>
+                                            <div class="cart-item__ctrl">
+                                                <form method="post">
+                                                    <input type="hidden" value="@item.OrderDetailId" name="orderDetailID"/>
+                                                    <input type="hidden" value="@Model.Orderr.User.UserId" name="userID"/>
+                                                    <input type="hidden" value="@item.OrderId" name="orderID" />
+                                                    <input  type="submit" value="Delete" class="btn btn-danger" />
+                                                </form>
+                                                <a class="cart-item__ctrl-btn" href="/Products/DetailsProductToCart?id=@item.ProductId">
+                                                    <img src="/assets/icons/heart.svg" alt="" />
+                                                    Click To View Product Detail
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                            }
+                        </div>
+                        <div class="cart-info__bottom d-md-none">
+                            <div class="row">
+                                <div class="col-8 col-xxl-7">
+                                    <div class="cart-info__continue">
+                                        <a href="/Orders/OrderList" class="cart-info__continue-link">
+                                            <img class="cart-info__continue-icon icon" src="/assets/icons/arrow-down-2.svg" alt="" />
+                                            Back
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-xxl-5">
+                                    <div class="cart-info__row">
+                                        <span>Subtotal:</span>
+                                        <span>$@Model.Subtotal</span>
+                                    </div>
+                                    <div class="cart-info__row">
+                                        <span>Shipping:</span>
+                                        <span>$10.00</span>
+                                    </div>
+                                    <div class="cart-info__separate"></div>
+                                    <div class="cart-info__row cart-info__row--bold">
+                                        <span>Total:</span>
+                                        <span>$@(Model.Subtotal + 10)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           
+            </div>
+        </div>
+    </div>
+    <style>
+        .rating::placeholder{
+            color: gray; /* Change the color */
+            font-size: 14px; /* Change the font size */
+            margin-left: 15px;
+            opacity: 1; /* Override default opacity */
+        }
+        .rating:focus::placeholder {
+            color: lightgray; /* Change the color on focus */
+        }
+
+        .btn_btn{
+            background-color: orange;
+            color: cornsilk;
+            border: 1px solid;
+            border-color: white;
+            border-radius: 10px;
+            font-size: 16px;
+            margin: 4px;
+        }
+
+    </style>
+</main>
+
+
+
+

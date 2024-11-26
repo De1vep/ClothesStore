@@ -1,0 +1,45 @@
+﻿@page "{id:int}"
+@model ProjectPRN221.Pages.AdminPage.Users.DetailModel
+@{
+    ViewData["Title"] = "User Details";
+}
+
+<div class="content-page">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between">
+                        <div class="header-title">
+                            <h4 class="card-title">User Details</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <p>@Model.User.Fullname</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <p>@Model.User.Email</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Role</label>
+                                    <p>@Model.User.Role</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="@Url.Page("EditUser", new { id = Model.User.UserId })" class="btn btn-primary mr-2">Edit</a>
+                        <a href="@Url.Page("DeleteUser", new { id = Model.User.UserId })" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

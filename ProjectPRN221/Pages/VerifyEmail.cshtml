@@ -1,0 +1,38 @@
+﻿@page "{fullname?}/{email?}/{password?}"
+@model ProjectPRN221.Pages.VerifyEmailModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Verification | Grocery Mart</title>
+    <link rel="stylesheet" href="~/assets/css/main.css" />
+    <script>
+        setTimeout(function () {
+            window.location.href = '/Login';
+        }, 3000);
+    </script>
+</head>
+<body>
+    <main class="auth">
+        <div class="auth__content">
+            <div class="auth__content-inner">
+                <a href="./" class="logo">
+                    <img src="~/assets/icons/logo.svg" alt="grocerymart" class="logo__img" />
+                    <h2 class="logo__title">grocerymart</h2>
+                </a>
+                <h1 class="auth__heading">Email Verified</h1>
+                <p class="auth__desc">
+                    Your email has been verified. You will be redirected to the login page shortly.
+                </p>
+                <p class="auth__text">
+                    <a href="/Index" class="auth__link auth__text-link">Back to Home</a>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

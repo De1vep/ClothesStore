@@ -1,0 +1,941 @@
+{
+  "Files": [
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\ProjectPRN221.bundle.scp.css",
+      "PackagePath": "staticwebassets\\ProjectPRN221.bundle.scp.css"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\css\\backend-plugin.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\backend-plugin.min.css"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\css\\backend.css",
+      "PackagePath": "staticwebassets\\assets\\css\\backend.css"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\css\\bootstrap\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\assets\\css\\bootstrap\\bootstrap-grid.css"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\css\\bootstrap\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\assets\\css\\bootstrap\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\css\\bootstrap\\bootstrap.css",
+      "PackagePath": "staticwebassets\\assets\\css\\bootstrap\\bootstrap.css"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\css\\main.css",
+      "PackagePath": "staticwebassets\\assets\\css\\main.css"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\css\\main.css.map",
+      "PackagePath": "staticwebassets\\assets\\css\\main.css.map"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\favicon\\android-chrome-96x96.png",
+      "PackagePath": "staticwebassets\\assets\\favicon\\android-chrome-96x96.png"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\favicon\\apple-touch-icon.png",
+      "PackagePath": "staticwebassets\\assets\\favicon\\apple-touch-icon.png"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\favicon\\browserconfig.xml",
+      "PackagePath": "staticwebassets\\assets\\favicon\\browserconfig.xml"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\favicon\\favicon-16x16.png",
+      "PackagePath": "staticwebassets\\assets\\favicon\\favicon-16x16.png"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\favicon\\favicon-32x32.png",
+      "PackagePath": "staticwebassets\\assets\\favicon\\favicon-32x32.png"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\favicon\\favicon.ico",
+      "PackagePath": "staticwebassets\\assets\\favicon\\favicon.ico"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\favicon\\mstile-150x150.png",
+      "PackagePath": "staticwebassets\\assets\\favicon\\mstile-150x150.png"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\favicon\\site.webmanifest",
+      "PackagePath": "staticwebassets\\assets\\favicon\\site.webmanifest"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\fonts\\Lato-Black.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\Lato-Black.woff"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\fonts\\Lato-Black.woff2",
+      "PackagePath": "staticwebassets\\assets\\fonts\\Lato-Black.woff2"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\fonts\\Lato-Bold.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\Lato-Bold.woff"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\fonts\\Lato-Bold.woff2",
+      "PackagePath": "staticwebassets\\assets\\fonts\\Lato-Bold.woff2"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\fonts\\Lato-Hairline.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\Lato-Hairline.woff"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\fonts\\Lato-Hairline.woff2",
+      "PackagePath": "staticwebassets\\assets\\fonts\\Lato-Hairline.woff2"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\fonts\\Lato-Heavy.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\Lato-Heavy.woff"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\fonts\\Lato-Heavy.woff2",
+      "PackagePath": "staticwebassets\\assets\\fonts\\Lato-Heavy.woff2"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\fonts\\Lato-Italic.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\Lato-Italic.woff"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\fonts\\Lato-Italic.woff2",
+      "PackagePath": "staticwebassets\\assets\\fonts\\Lato-Italic.woff2"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\fonts\\Lato-Light.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\Lato-Light.woff"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\fonts\\Lato-Light.woff2",
+      "PackagePath": "staticwebassets\\assets\\fonts\\Lato-Light.woff2"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\fonts\\Lato-Medium.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\Lato-Medium.woff"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\fonts\\Lato-Medium.woff2",
+      "PackagePath": "staticwebassets\\assets\\fonts\\Lato-Medium.woff2"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\fonts\\Lato-Regular.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\Lato-Regular.woff"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\fonts\\Lato-Regular.woff2",
+      "PackagePath": "staticwebassets\\assets\\fonts\\Lato-Regular.woff2"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\fonts\\Lato-Thin.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\Lato-Thin.woff"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\fonts\\Lato-Thin.woff2",
+      "PackagePath": "staticwebassets\\assets\\fonts\\Lato-Thin.woff2"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\fonts\\stylesheet.css",
+      "PackagePath": "staticwebassets\\assets\\fonts\\stylesheet.css"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\arrow-down-2.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\arrow-down-2.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\arrow-down.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\arrow-down.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\arrow-left.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\arrow-left.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\arrow-right.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\arrow-right.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\arrow-up.png",
+      "PackagePath": "staticwebassets\\assets\\icons\\arrow-up.png"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\bag.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\bag.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\buy.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\buy.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\calling.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\calling.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\checkbox-checked.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\checkbox-checked.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\checkbox-uncheck.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\checkbox-uncheck.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\danger.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\danger.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\document.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\document.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\download.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\download.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\dropdown-arrow.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\dropdown-arrow.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\edit.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\edit.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\facebook.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\facebook.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\filter.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\filter.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\form-error.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\form-error.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\gift-2.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\gift-2.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\gift.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\gift.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\google.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\google.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\heart-2.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\heart-2.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\heart-red.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\heart-red.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\heart.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\heart.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\info.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\info.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\linkedin.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\linkedin.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\location.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\location.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\lock.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\lock.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\logo.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\logo.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\message-2.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\message-2.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\message.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\message.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\minus.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\minus.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\more.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\more.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\plus.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\plus.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\profile.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\profile.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\search.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\search.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\select-arrow.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\select-arrow.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\shield.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\shield.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\star-blank.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\star-blank.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\star-half.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\star-half.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\star.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\star.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\sun.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\sun.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\tiktok.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\tiktok.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\trash.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\trash.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\twitter.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\twitter.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\icons\\youtube.svg",
+      "PackagePath": "staticwebassets\\assets\\icons\\youtube.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\404.png",
+      "PackagePath": "staticwebassets\\assets\\img\\404.png"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\auth\\forgot-password.png",
+      "PackagePath": "staticwebassets\\assets\\img\\auth\\forgot-password.png"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\auth\\intro-arrow.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\auth\\intro-arrow.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\auth\\intro.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\auth\\intro.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\avatar.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\avatar.jpg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\avatar\\avatar-1.png",
+      "PackagePath": "staticwebassets\\assets\\img\\avatar\\avatar-1.png"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\avatar\\avatar-2.png",
+      "PackagePath": "staticwebassets\\assets\\img\\avatar\\avatar-2.png"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\avatar\\avatar-3.png",
+      "PackagePath": "staticwebassets\\assets\\img\\avatar\\avatar-3.png"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\card\\leaf-bg.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\card\\leaf-bg.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\card\\leaf.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\card\\leaf.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\card\\plane-bg.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\card\\plane-bg.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\card\\plane.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\card\\plane.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category-item\\item-1.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\category-item\\item-1.jpg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category-item\\item-2.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\category-item\\item-2.jpg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category-item\\item-3.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\category-item\\item-3.jpg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category-item\\upload_1a85009a6a5845b0b186cef3bbe5fca8_master.webp",
+      "PackagePath": "staticwebassets\\assets\\img\\category-item\\upload_1a85009a6a5845b0b186cef3bbe5fca8_master.webp"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-1.1.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-1.1.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-1.2.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-1.2.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-10.1.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-10.1.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-10.2.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-10.2.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-11.1.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-11.1.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-11.2.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-11.2.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-12.1.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-12.1.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-12.2.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-12.2.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-13.1.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-13.1.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-13.2.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-13.2.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-14.1.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-14.1.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-14.2.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-14.2.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-15.1.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-15.1.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-15.2.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-15.2.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-16.1.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-16.1.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-16.2.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-16.2.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-17.1.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-17.1.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-17.2.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-17.2.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-18.1.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-18.1.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-18.2.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-18.2.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-19.1.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-19.1.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-19.2.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-19.2.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-2.1.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-2.1.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-2.2.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-2.2.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-3.1.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-3.1.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-3.2.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-3.2.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-4.1.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-4.1.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-4.2.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-4.2.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-5.1.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-5.1.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-5.2.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-5.2.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-6.1.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-6.1.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-6.2.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-6.2.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-7.1.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-7.1.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-7.2.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-7.2.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-8.1.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-8.1.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-8.2.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-8.2.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-9.1.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-9.1.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\category\\cate-9.2.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\category\\cate-9.2.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\logo.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\logo.svg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\payment\\delivery-1.png",
+      "PackagePath": "staticwebassets\\assets\\img\\payment\\delivery-1.png"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\payment\\delivery-2.png",
+      "PackagePath": "staticwebassets\\assets\\img\\payment\\delivery-2.png"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\product\\ao1.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\product\\ao1.jpg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\product\\ao10.webp",
+      "PackagePath": "staticwebassets\\assets\\img\\product\\ao10.webp"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\product\\ao11.webp",
+      "PackagePath": "staticwebassets\\assets\\img\\product\\ao11.webp"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\product\\ao12.webp",
+      "PackagePath": "staticwebassets\\assets\\img\\product\\ao12.webp"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\product\\ao2.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\product\\ao2.jpg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\product\\ao3.webp",
+      "PackagePath": "staticwebassets\\assets\\img\\product\\ao3.webp"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\product\\ao4.webp",
+      "PackagePath": "staticwebassets\\assets\\img\\product\\ao4.webp"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\product\\ao5.webp",
+      "PackagePath": "staticwebassets\\assets\\img\\product\\ao5.webp"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\product\\ao6.webp",
+      "PackagePath": "staticwebassets\\assets\\img\\product\\ao6.webp"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\product\\ao8.webp",
+      "PackagePath": "staticwebassets\\assets\\img\\product\\ao8.webp"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\product\\ao9.webp",
+      "PackagePath": "staticwebassets\\assets\\img\\product\\ao9.webp"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\product\\hoodie.png",
+      "PackagePath": "staticwebassets\\assets\\img\\product\\hoodie.png"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\product\\hoodie2.png",
+      "PackagePath": "staticwebassets\\assets\\img\\product\\hoodie2.png"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\product\\item-1.png",
+      "PackagePath": "staticwebassets\\assets\\img\\product\\item-1.png"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\product\\item-2.png",
+      "PackagePath": "staticwebassets\\assets\\img\\product\\item-2.png"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\product\\item-3.png",
+      "PackagePath": "staticwebassets\\assets\\img\\product\\item-3.png"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\product\\item-4.png",
+      "PackagePath": "staticwebassets\\assets\\img\\product\\item-4.png"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\product\\item-5.png",
+      "PackagePath": "staticwebassets\\assets\\img\\product\\item-5.png"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\product\\item-7.webp",
+      "PackagePath": "staticwebassets\\assets\\img\\product\\item-7.webp"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\product\\item-8.png",
+      "PackagePath": "staticwebassets\\assets\\img\\product\\item-8.png"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\product\\jogger.png",
+      "PackagePath": "staticwebassets\\assets\\img\\product\\jogger.png"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\profile\\cover.png",
+      "PackagePath": "staticwebassets\\assets\\img\\profile\\cover.png"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\slideshow\\item-1-md.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\slideshow\\item-1-md.jpg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\slideshow\\item-1.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\slideshow\\item-1.jpg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\user\\01.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\user\\01.jpg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\user\\02.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\user\\02.jpg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\user\\03.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\user\\03.jpg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\img\\user\\1.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\user\\1.jpg"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\js\\app.js",
+      "PackagePath": "staticwebassets\\assets\\js\\app.js"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\js\\backend-bundle.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\backend-bundle.min.js"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\assets\\js\\scripts.js",
+      "PackagePath": "staticwebassets\\assets\\js\\scripts.js"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\css\\popup.css",
+      "PackagePath": "staticwebassets\\css\\popup.css"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "E:\\projectprn221\\prj\\ProjectPRN221\\ProjectPRN221\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.ProjectPRN221.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.ProjectPRN221.props",
+      "PackagePath": "build\\ProjectPRN221.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.ProjectPRN221.props",
+      "PackagePath": "buildMultiTargeting\\ProjectPRN221.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.ProjectPRN221.props",
+      "PackagePath": "buildTransitive\\ProjectPRN221.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

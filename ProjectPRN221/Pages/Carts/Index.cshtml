@@ -1,0 +1,56 @@
+﻿@page
+@model ProjectPRN221.Pages.Carts.IndexModel
+
+@{
+    ViewData["Title"] = "Cart Index";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Grocery Mart</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/main.css" />
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center mb-4">Cart Items</h1>
+                <div class="text-right mb-3">
+                    <a asp-page="Create" class="btn btn-primary">Create New</a>
+                </div>
+                <table class="table table-bordered table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Cart[0].Quantity)</th>
+                            <th>@Html.DisplayNameFor(model => model.Cart[0].Product)</th>
+                            <th>@Html.DisplayNameFor(model => model.Cart[0].User)</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var item in Model.Cart) {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Quantity)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Product.ProductName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.User.Fullname)</td>
+                            <td class="text-center">
+                                <a asp-page="./Edit" asp-route-id="@item.CartId" class="btn btn-sm btn-warning">Edit</a>
+                                <a asp-page="./Details" asp-route-id="@item.CartId" class="btn btn-sm btn-info">Details</a>
+                                <a asp-page="./Delete" asp-route-id="@item.CartId" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,450 @@
+﻿@page "{id:int}"
+@model ProjectPRN221.Pages.AdminPage.Orders.DetailModel
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+
+@{
+    ViewData["Title"] = "Order Details";
+}
+@{
+    var token = Antiforgery.GetAndStoreTokens(HttpContext).RequestToken;
+}
+
+<style>
+    dt, dd {
+        align-self: center;
+    }
+</style>
+
+<div class="card">
+    <div class="card-header">
+        <div class="row" style="
+    padding-left: 30px;
+">
+            <div class="col-6">
+                <div class="form-group">
+                    
+                    <div class="row">
+                        <label for="ProductSearch"><strong>Product Search</strong> </label>
+                        <input type="text" id="ProductSearch" class="form-control col-10" oninput="searchProduct()" placeholder="Search for products..." />
+                        <input type="number" id="quantity" class="form-control col-2" placeholder="Quantity" min="1" />
+                    </div>
+                    <div id="ProductResults" class="dropdown-menu" style="width: 100%; max-height: 300px; overflow-y: auto;"></div>
+                </div>
+            </div>
+
+        </div>
+        @* <h2>Order Details</h2> *@
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Total Price</th>
+                </tr>
+            </thead>
+            <tbody id="SelectedProducts">
+            </tbody>
+        </table>
+        <div>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-1">
+                    Order ID
+                </dt>
+                <dd class="col-sm-1">
+                    @Model.Order.OrderId
+                </dd>
+                <dt class="col-sm-2">
+                    User Name
+                </dt>
+                <dd class="col-sm-3">
+                    <select id="userId" asp-for="Order.UserId" class="form-control">
+                        @foreach (var user in Model.Users)
+                        {
+                            <option value="@user.UserId">@user.Fullname</option>
+                        }
+                    </select>
+                </dd>
+                <dt class="col-sm-2">
+                    Order Status
+                </dt>
+                <dd class="col-sm-3">
+                    <select id="orderStatus" asp-for="Order.OrderStatus" class="form-control">
+                        <option value="Cancel">Cancel</option>
+                        <option value="Shipped">Shipped</option>
+                        <option value="Delivery">Delivery</option>
+                    </select>
+                </dd>
+
+
+                <dt class="col-sm-2">
+                    Order Date
+                </dt>
+                <dd class="col-sm-4">
+                    <input asp-for="Order.OrderDate" id="oderDate" class="form-control" />
+                </dd>
+                <dt class="col-sm-2">
+                    Phone Number
+                </dt>
+                <dd class="col-sm-4">
+                    <input asp-for="Order.PhoneNumber" id="phoneNumber" class="form-control" />
+                </dd>
+                <dt class="col-sm-2">
+                    Shipping Address
+                </dt>
+                <dd class="col-sm-4">
+                    <input asp-for="Order.ShippingAddress" id="shippingAddress" class="form-control" />
+                </dd>
+                <div class="col-sm-6"></div>
+                <dt class="col-sm-2">
+                    Total Amount
+                </dt>
+                <dd id="totalSubtotal" class="col-sm-10">
+                    @Model.Order.TotalAmount
+                </dd>
+
+            </dl>
+        </div>
+
+        
+    </div>
+
+    <div class="card-footer">
+        <input type="hidden" id="RequestVerificationToken"
+               name="__RequestVerificationToken" value="@token">
+        <button id="checkoutButton" class="btn btn-primary mt-3" onclick="checkout(@Model.Order.OrderId)">Update</button>
+        <a class="btn badge bg-success mt-3" data-placement="top" asp-page="./Index">Back to List</a>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+
+        let selectedProduct = null;
+        let selectedProducts = {};
+        let currentSelectedIndex = -1;
+        let productCounter = 1;  // Initialize product counter
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const existingProducts = @Html.Raw(Json.Serialize(Model.Order.OrderDetails.Select(od => new
+            {
+                productId = od.ProductId,
+                productName = od.Product.ProductName,
+                quantity = od.Quantity,
+                unitPrice = od.UnitPrice
+            })));
+
+            existingProducts.forEach(product => {
+                const sequentialId = productCounter++;
+                selectedProducts[sequentialId] = {
+                    productId: product.productId,
+                    productName: product.productName,
+                    quantity: product.quantity,
+                    unitPrice: product.unitPrice
+                };
+            });
+
+            updateSelectedProductsList();
+        });
+
+        function checkout(orderId) {
+
+            const ex = document.getElementById('orderStatus').value;
+            console.log(ex);
+            if (Object.keys(selectedProducts).length === 0) {
+                alert("Please add products to your order before updating.");
+                return;
+            }
+
+            const orderDetails = Object.entries(selectedProducts).map(([productId, product]) => ({
+                OrderId: orderId,
+                ProductId: parseInt(productId),
+                Quantity: product.quantity,
+                UnitPrice: product.unitPrice
+            }));
+
+            const orderData = {
+                Order: {
+                    OrderId: orderId,
+                    UserID: parseInt(document.getElementById('userId').value),
+                    OrderDate: document.getElementById('oderDate').value,
+                    ShippingAddress: document.getElementById('shippingAddress').value,
+                    PhoneNumber: document.getElementById('phoneNumber').value,
+                    TotalAmount: Object.values(selectedProducts).reduce((sum, product) =>
+                        sum + (product.quantity * product.unitPrice), 0),
+                    OrderStatus: ex
+                },
+                OrderDetails: orderDetails
+            };
+
+            // Prepare the request URL
+            const requestUrl = '?handler=Update';
+
+            // Prepare the request options
+            const requestOptions = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'RequestVerificationToken': document.getElementById('RequestVerificationToken').value
+                },
+                body: JSON.stringify(orderData)
+            };
+
+            // Log the request details
+            console.log('Request URL:', requestUrl);
+            console.log('Request Options:', requestOptions);
+
+            // Send the request
+            fetch(requestUrl, requestOptions)
+                .then(response => {
+                    // Log response details
+                    console.log('Response Status:', response.status);
+                    console.log('Response Status Text:', response.statusText);
+
+                    if (!response.ok) {
+                        return response.text().then(text => {
+                            // Log the response text for debugging
+                            console.error(`HTTP error ${response.status}: ${response.statusText}`);
+                            console.error('Response Text:', text);
+                            throw new Error(`HTTP error ${response.status}: ${response.statusText}`);
+                        });
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Log the server response
+                    console.log('Server Response Data:', data);
+                    if (data.success) {
+                        alert("Order successfully updated!");
+                        selectedProducts = {};
+                        updateSelectedProductsList();
+                        // Reload the page after a successful update
+                        window.location.reload();
+                    } else {
+                        alert("Error updating order: " + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Fetch Error:', error);
+                    alert("An error occurred while updating the order.");
+                });
+        }
+
+
+        function searchProduct() {
+            const searchTerm = document.getElementById('ProductSearch').value;
+            if (searchTerm.length < 2) {
+                document.getElementById('ProductResults').style.display = 'none';
+                return;
+            }
+
+            fetch(`?handler=SearchProducts&searchTerm=${encodeURIComponent(searchTerm)}`)
+                .then(response => response.json())
+                .then(products => {
+                    const resultsContainer = document.getElementById('ProductResults');
+                    resultsContainer.innerHTML = '';
+
+                    if (products.length > 0) {
+                        resultsContainer.style.display = 'block';
+                    } else {
+                        resultsContainer.style.display = 'none';
+                    }
+
+                    products.forEach((product, index) => {
+                        const item = document.createElement('div');
+                        item.className = 'dropdown-item';
+                        item.setAttribute('data-index', index);
+                        item.setAttribute('data-product-id', product.productId);
+                        item.innerHTML = `
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <img src="/assets/img/product/${product.productImage}" alt="${product.productName}" class="img-thumbnail" style="width: 50px; height: 50px;">
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <strong>${product.productName}</strong><br>
+                                                                    $${product.price.toFixed(2)}
+                                                                </div>
+                                                            </div>
+                                                        `;
+                        item.addEventListener('click', function () {
+                            selectProduct(product.productId, product.productName, product.price);
+                        });
+                        resultsContainer.appendChild(item);
+                    });
+
+                    currentSelectedIndex = -1;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function handleKeyNavigation(e) {
+            const results = document.querySelectorAll('#ProductResults .dropdown-item');
+            if (results.length === 0) return;
+
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                currentSelectedIndex = (currentSelectedIndex + 1) % results.length;
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                currentSelectedIndex = (currentSelectedIndex - 1 + results.length) % results.length;
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                if (currentSelectedIndex !== -1) {
+                    const selectedItem = results[currentSelectedIndex];
+                    const productId = selectedItem.getAttribute('data-product-id');
+                    const productName = selectedItem.querySelector('strong').textContent;
+                    const price = parseFloat(selectedItem.textContent.match(/\$(\d+\.\d+)/)[1]);
+                    selectProduct(productId, productName, price);
+                }
+                return;
+            } else {
+                return;
+            }
+
+            results.forEach((item, index) => {
+                if (index === currentSelectedIndex) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        function selectProduct(productId, productName, price) {
+            document.getElementById('ProductSearch').value = productName;
+            selectedProduct = {
+                productId: productId,
+                productName: productName,
+                price: price,
+                sequentialId: productCounter++  // Use sequential number
+            };
+            document.getElementById('ProductResults').style.display = 'none';
+            document.getElementById('quantity').focus();
+        }
+
+
+        function addOrUpdateProduct() {
+            if (!selectedProduct) {
+                alert('Please select a product first.');
+                return;
+            }
+
+            const quantityInput = document.getElementById('quantity');
+            const quantity = parseInt(quantityInput.value);
+            if (isNaN(quantity) || quantity <= 0) {
+                alert('Please enter a valid quantity.');
+                return;
+            }
+
+            if (selectedProducts[selectedProduct.sequentialId]) {
+                selectedProducts[selectedProduct.sequentialId].quantity += quantity;
+            } else {
+                selectedProducts[selectedProduct.sequentialId] = {
+                    productId: selectedProduct.productId,
+                    productName: selectedProduct.productName,
+                    quantity: quantity,
+                    unitPrice: selectedProduct.price
+                };
+            }
+
+            updateSelectedProductsList();
+            selectedProduct = null;
+            document.getElementById('ProductSearch').value = '';
+            document.getElementById('quantity').value = '';
+            document.getElementById('ProductSearch').focus();
+        }
+
+
+        function updateSelectedProductsList() {
+            const selectedProductsContainer = document.getElementById('SelectedProducts');
+            selectedProductsContainer.innerHTML = '';
+
+            for (const [productId, product] of Object.entries(selectedProducts)) {
+                const listItem = document.createElement('tr');
+                const subtotal = product.quantity * product.unitPrice;
+
+                listItem.innerHTML = `
+                        <td>${productId}</td>
+                        <td><strong>${product.productName}</strong></td>
+                        <td>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-outline-secondary" type="button" onclick="changeQuantity('${productId}', -1)">-</button>
+                                </div>
+                                <input type="number" class="form-control text-center" value="${product.quantity}" min="1" onchange="updateQuantity('${productId}', this.value)">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" onclick="changeQuantity('${productId}', 1)">+</button>
+                                </div>
+                            </div>
+                        </td>
+                        <td>$${formatNumber(product.unitPrice.toFixed(2))}</td>
+                        <td>$${formatNumber(subtotal.toFixed(2))}</td>
+                        <td class="text-right">
+                            <button type="button" class="btn btn-danger btn-sm" onclick="removeSelectedProduct('${productId}')">X</button>
+                        </td>
+                    `;
+
+                selectedProductsContainer.appendChild(listItem);
+            }
+
+            updateTotalSubtotal();
+        }
+
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        function changeQuantity(productId, change) {
+            const newQuantity = selectedProducts[productId].quantity + change;
+            if (newQuantity > 0) {
+                selectedProducts[productId].quantity = newQuantity;
+                updateSelectedProductsList();
+            }
+        }
+
+        function updateQuantity(productId, newQuantity) {
+            newQuantity = parseInt(newQuantity);
+            if (newQuantity > 0) {
+                selectedProducts[productId].quantity = newQuantity;
+                updateSelectedProductsList();
+            } else {
+                removeSelectedProduct(productId);
+            }
+        }
+
+        function removeSelectedProduct(productId) {
+            delete selectedProducts[productId];
+            updateSelectedProductsList();
+        }
+
+        function updateTotalSubtotal() {
+            const totalSubtotal = Object.values(selectedProducts).reduce((sum, product) => {
+                return sum + (product.quantity * product.unitPrice);
+            }, 0);
+
+            const totalSubtotalElement = document.getElementById('totalSubtotal');
+            totalSubtotalElement.textContent = `$${formatNumber(totalSubtotal.toFixed(2))}`;
+        }
+
+        // Event Listeners
+        document.getElementById('ProductSearch').addEventListener('input', searchProduct);
+        document.getElementById('ProductSearch').addEventListener('keydown', handleKeyNavigation);
+        document.getElementById('quantity').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                addOrUpdateProduct();
+            }
+        });
+    </script>
+
+    <style>
+        .dropdown-item.active {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+}

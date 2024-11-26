@@ -1,0 +1,38 @@
+﻿@page
+@model ProjectPRN221.Pages.EmailConfirmationModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Sent | Grocery Mart</title>
+    <link rel="stylesheet" href="~/assets/css/main.css" />
+</head>
+<script>
+    setTimeout(function () {
+        window.location.href = '/Index';
+    }, 3000);
+</script>
+<body>
+    <main class="auth">
+        <div class="auth__content">
+            <div class="auth__content-inner">
+                <a href="./" class="logo">
+                    <img src="~/assets/icons/logo.svg" alt="grocerymart" class="logo__img" />
+                    <h2 class="logo__title">grocerymart</h2>
+                </a>
+                <h1 class="auth__heading">Email Sent</h1>
+                <p class="auth__desc">
+                    An email has been sent to your email address. Please check the link in the email to complete your registration.
+                </p>
+                <p class="auth__text">
+                    <a href="/Index" class="auth__link auth__text-link">Back to Home</a>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

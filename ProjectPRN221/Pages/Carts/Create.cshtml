@@ -1,0 +1,59 @@
+﻿@page
+@model ProjectPRN221.Pages.Carts.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Grocery Mart</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/main.css" />
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Create Cart Item</h1>
+        <h4>Cart</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Cart.UserId" class="control-label"></label>
+                        <select asp-for="Cart.UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Cart.ProductId" class="control-label"></label>
+                        <select asp-for="Cart.ProductId" class="form-control" asp-items="ViewBag.ProductId"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Cart.Quantity" class="control-label"></label>
+                        <input asp-for="Cart.Quantity" class="form-control" />
+                        <span asp-validation-for="Cart.Quantity" class="text-danger"></span>
+                    </div>
+                    <div class="form-group text-center">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
+                <div class="text-center">
+                    <a asp-page="Index" class="btn btn-secondary">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+</body>
+</html>

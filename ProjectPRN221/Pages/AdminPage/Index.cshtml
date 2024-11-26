@@ -1,0 +1,450 @@
+﻿@page
+@model ProjectPRN221.Pages.AdminPage.IndexModel
+@{
+}
+
+<div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 col-lg-3">
+                <div class="card card-block card-stretch card-height">
+                    <div class="card-body">
+                        <div class="top-block d-flex align-items-center justify-content-between">
+                            <h5>Total Order</h5>
+                            <span class="badge badge-primary">This Month</span>
+                        </div>
+                        <h3>$<span class="counter">@Model.MonthlyOrders</span></h3>
+                        <div class="d-flex align-items-center justify-content-between mt-1">
+                            <p class="mb-0">Vs Pre-Month</p>
+                            <span class="text-primary">@Model.PercentageOrderChange</span>
+                        </div>
+                        <div class="iq-progress-bar bg-primary-light mt-2">
+                            <span class="bg-primary iq-progress progress-1" data-percent="100"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card card-block card-stretch card-height">
+                    <div class="card-body">
+                        <div class="top-block d-flex align-items-center justify-content-between">
+                            <h6>Total Revenue</h6>
+                            <span class="badge badge-warning">This Month</span>
+                        </div>
+                        <h3>$<span class="counter">@Model.MonthlyRevenue.ToString("N0")</span></h3>
+                        <div class="d-flex align-items-center justify-content-between mt-1">
+                            <p class="mb-0">Vs Pre-Month</p>
+                            <span class="text-warning">@Model.PercentageRevenueChange</span>
+                        </div>
+                        <div class="iq-progress-bar bg-warning-light mt-2">
+                            <span class="bg-warning iq-progress progress-1" data-percent="100"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card card-block card-stretch card-height">
+                    <div class="card-body">
+                        <div class="top-block d-flex align-items-center justify-content-between">
+                            <h5>Product Sold</h5>
+                            <span class="badge badge-success">This Month</span>
+                        </div>
+                        <h3><span class="counter">@Model.MonthlyProductsSold</span></h3>
+                        <div class="d-flex align-items-center justify-content-between mt-1">
+                            <p class="mb-0">Vs Pre-Month</p>
+                            <span class="text-success">@Model.PercentageProductChange</span>
+                        </div>
+                        <div class="iq-progress-bar bg-success-light mt-2">
+                            <span class="bg-success iq-progress progress-1" data-percent="100"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card card-block card-stretch card-height">
+                    <div class="card-body">
+                        <div class="top-block d-flex align-items-center justify-content-between">
+                            <h5>Revenue</h5>
+                            <span class="badge badge-info">Daily</span>
+                        </div>
+                        <h3>$<span class="counter">@Model.DailyRevenue.ToString("N0")</span></h3>
+                        <div class="d-flex align-items-center justify-content-between mt-1">
+                            <p class="mb-0">Order</p>
+                            <span class="text-info">@Model.DailyOrders</span>
+                        </div>
+                        <div class="iq-progress-bar bg-info-light mt-2">
+                            <span class="bg-info iq-progress progress-1" data-percent="100"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <h3>Orders and Revenue by Day</h3>
+        <div class="row">
+            <div class="col-md-12 mt-3">
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <!-- Dropdown for Revenue Chart -->
+                            <div class="form-group col-6">
+                                <label for="monthSelectRevenue">Select Month for Revenue Chart:</label>
+                                <select id="monthSelectRevenue" class="form-control">
+                                    @for (int i = 1; i <= 12; i++)
+                                    {
+                                        <option value="@i">@i</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="yearSelectRevenue">Select Year for Revenue Chart:</label>
+                                <select id="yearSelectRevenue" class="form-control">
+                                    @for (int i = DateTime.Now.Year - 5; i <= DateTime.Now.Year; i++)
+                                    {
+                                        <option value="@i">@i</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <canvas id="revenueChart"></canvas>
+                    <div class="card-footer align-self-center">Total Revenue by day in month</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label for="monthSelect">Select Month:</label>
+                                    <select id="monthSelect" class="form-control">
+                                        @for (int i = 1; i <= 12; i++)
+                                        {
+                                            <option value="@i">@i</option>
+                                        }
+                                    </select>
+                                </div>
+                                <div class="form-group col-6">
+                                    <label for="yearSelect">Select Year:</label>
+                                    <select id="yearSelect" class="form-control">
+                                        @for (int i = DateTime.Now.Year - 5; i <= DateTime.Now.Year; i++)
+                                        {
+                                            <option value="@i">@i</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            
+                            <canvas id="topProductsChart"></canvas>
+                            <div class="card-footer align-self-center">Top highest solded products in month</div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="row">
+                                    <!-- Dropdown for Orders Chart -->
+                                    <div class="form-group col-6">
+                                        <label for="monthSelectOrders">Select Month for Orders Chart:</label>
+                                        <select id="monthSelectOrders" class="form-control">
+                                            @for (int i = 1; i <= 12; i++)
+                                            {
+                                                <option value="@i" selected="@DateTime.Now.Month">@i</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label for="yearSelectOrders">Select Year for Orders Chart:</label>
+                                        <select id="yearSelectOrders" class="form-control">
+                                            @for (int i = DateTime.Now.Year - 5; i <= DateTime.Now.Year; i++)
+                                            {
+                                                <option value="@i" selected="@DateTime.Now.Year">@i</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <canvas id="ordersChart"></canvas>
+                            <div class="card-footer align-self-center">Number of orders by day in month</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 mt-3">
+
+                <div class="card">
+                    <h2 class="card-header">Low Stock Products</h2>
+                    <table class="card-body table">
+                        <thead>
+                            <tr>
+                                <th>Product ID</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var product in Model.LowStockProducts.OrderBy(p => p.ProductName))
+                            {
+                                <tr>
+                                    <td>@product.ProductId</td>
+                                    <td>@product.ProductName</td>
+                                    <td>@product.ProductDescription</td>
+                                    <td>@product.Price.ToString("N0")</td>
+                                    <td>@product.Quantity</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Page end  -->
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+
+
+
+    document.getElementById('monthSelect').addEventListener('change', updateChart);
+    document.getElementById('yearSelect').addEventListener('change', updateChart);
+    document.getElementById('monthSelectOrders').addEventListener('change', updateOrdersChart);
+    document.getElementById('yearSelectOrders').addEventListener('change', updateOrdersChart);
+    document.getElementById('monthSelectRevenue').addEventListener('change', updateRevenueChart);
+    document.getElementById('yearSelectRevenue').addEventListener('change', updateRevenueChart);
+
+    var ordersChart;
+    var revenueChart;
+    document.addEventListener('DOMContentLoaded', function () {
+        var currentYear = new Date().getFullYear();
+        var currentMonth = new Date().getMonth() + 1; // Tháng trong JavaScript bắt đầu từ 0
+
+        // Thiết lập giá trị selected cho dropdown năm
+        var yearSelect = document.getElementById('yearSelect');
+        yearSelect.value = currentYear;
+
+        // Thiết lập giá trị selected cho dropdown tháng
+        var monthSelect = document.getElementById('monthSelect');
+        monthSelect.value = currentMonth;
+
+        // Thiết lập giá trị selected cho dropdown năm trong biểu đồ đơn hàng
+        var yearSelectOrders = document.getElementById('yearSelectOrders');
+        yearSelectOrders.value = currentYear;
+
+        // Thiết lập giá trị selected cho dropdown tháng trong biểu đồ đơn hàng
+        var monthSelectOrders = document.getElementById('monthSelectOrders');
+        monthSelectOrders.value = currentMonth;
+
+        // Thiết lập giá trị selected cho dropdown năm trong biểu đồ doanh thu
+        var yearSelectRevenue = document.getElementById('yearSelectRevenue');
+        yearSelectRevenue.value = currentYear;
+
+        // Thiết lập giá trị selected cho dropdown tháng trong biểu đồ doanh thu
+        var monthSelectRevenue = document.getElementById('monthSelectRevenue');
+        monthSelectRevenue.value = currentMonth;
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+        var ordersChartData = @Html.Raw(Model.OrdersChartData);
+        var revenueChartData = @Html.Raw(Model.RevenueChartData);
+
+        var ctxOrders = document.getElementById('ordersChart').getContext('2d');
+        ordersChart = new Chart(ctxOrders, {
+            type: 'bar',
+            data: {
+                labels: ordersChartData.Labels,
+                datasets: [{
+                    label: 'Number of Orders',
+                    data: ordersChartData.Data,
+                    borderColor: '#5773ff',
+                    backgroundColor: '#5773ff',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Day'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Number of Orders'
+                        }
+                    }
+                }
+            }
+        });
+
+        var ctxRevenue = document.getElementById('revenueChart').getContext('2d');
+        revenueChart = new Chart(ctxRevenue, {
+            type: 'bar',
+            data: {
+                labels: revenueChartData.Labels,
+                datasets: [{
+                    label: 'Total Revenue',
+                    data: revenueChartData.Data,
+                    borderColor: '#50c6b4',
+                    backgroundColor: '#50c6b4',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Day'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Total Revenue'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Top Products Chart
+        var topProductsChartData = @Html.Raw(Model.TopProductsChartData);
+
+        var ctxTopProducts = document.getElementById('topProductsChart').getContext('2d');
+        topProductsChart = new Chart(ctxTopProducts, {
+            type: 'polarArea',
+            data: {
+                labels: topProductsChartData.Labels,
+                datasets: [{
+                    label: 'Top 10 Products',
+                    data: topProductsChartData.Data,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.5)',
+                        'rgba(54, 162, 235, 0.5)',
+                        'rgba(255, 206, 86, 0.5)',
+                        'rgba(75, 192, 192, 0.5)',
+                        'rgba(153, 102, 255, 0.5)',
+                        'rgba(255, 159, 64, 0.5)',
+                        'rgba(255, 99, 132, 0.5)',
+                        'rgba(54, 162, 235, 0.5)',
+                        'rgba(255, 206, 86, 0.5)',
+                        'rgba(75, 192, 192, 0.5)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                var label = context.label || '';
+                                if (label) {
+                                    label += ': ' + context.raw;
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+    });
+    var topProductsChart;
+    async function updateChart() {
+        var month = document.getElementById('monthSelect').value;
+        var year = document.getElementById('yearSelect').value;
+
+        try {
+            var response = await fetch(`/AdminPage/Index?handler=TopProductsChartData&month=${month}&year=${year}`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            var data = await response.json();
+            if (data && data.Labels && data.Data) {
+                topProductsChart.data.labels = data.Labels;
+                topProductsChart.data.datasets[0].data = data.Data;
+                topProductsChart.update();
+            } else {
+                console.error("Unexpected data format:", data);
+            }
+        } catch (error) {
+            console.error("Failed to fetch data:", error);
+        }
+    }
+    // Function to update Orders Chart
+    async function updateOrdersChart() {
+        var month = document.getElementById('monthSelectOrders').value;
+        var year = document.getElementById('yearSelectOrders').value;
+
+        try {
+            var response = await fetch(`/AdminPage/Index?handler=OrdersChartData&month=${month}&year=${year}`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            var data = await response.json();
+            if (data && data.Labels && data.Data) {
+                ordersChart.data.labels = data.Labels;
+                ordersChart.data.datasets[0].data = data.Data;
+                ordersChart.update();
+            } else {
+                console.error("Unexpected data format:", data);
+            }
+        } catch (error) {
+            console.error("Failed to fetch data:", error);
+        }
+    }
+
+    // Function to update Revenue Chart
+    async function updateRevenueChart() {
+        var month = document.getElementById('monthSelectRevenue').value;
+        var year = document.getElementById('yearSelectRevenue').value;
+
+        try {
+            var response = await fetch(`/AdminPage/Index?handler=RevenueChartData&month=${month}&year=${year}`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            var data = await response.json();
+            if (data && data.Labels && data.Data) {
+                revenueChart.data.labels = data.Labels;
+                revenueChart.data.datasets[0].data = data.Data;
+                revenueChart.update();
+            } else {
+                console.error("Unexpected data format:", data);
+            }
+        } catch (error) {
+            console.error("Failed to fetch data:", error);
+        }
+    }
+</script>

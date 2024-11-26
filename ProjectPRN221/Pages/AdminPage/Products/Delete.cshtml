@@ -1,0 +1,85 @@
+﻿@page
+@model ProjectPRN221.Pages.AdminPage.Products.DeleteModel
+@{
+}
+@{
+    ViewData["Title"] = "Delete Product";
+}
+
+
+<div class="card">
+    <div class="container">
+        <div class="row card-body">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">
+                        <strong>@Html.DisplayNameFor(model => model.Product.ProductId)</strong>
+                    </label>
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Product.ProductId)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">
+                        <strong>@Html.DisplayNameFor(model => model.Product.ProductName)</strong>
+                    </label>
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Product.ProductName)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">
+                        <strong>@Html.DisplayNameFor(model => model.Product.ProductDescription)</strong>
+                    </label>
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Product.ProductDescription)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label class="control-label">
+                            <strong>@Html.DisplayNameFor(model => model.Product.Price)</strong>
+                        </label>
+                        <div class="form-control">
+                            @Html.DisplayFor(model => model.Product.Price)
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label">
+                            <strong>@Html.DisplayNameFor(model => model.Product.Quantity)</strong>
+                        </label>
+                        <div class="form-control">
+                            @Html.DisplayFor(model => model.Product.Quantity)
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">
+                        <strong>@Html.DisplayNameFor(model => model.Product.Category)</strong>
+                    </label>
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.Product.Category.CategoryName)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">
+                        <strong>@Html.DisplayNameFor(model => model.Product.ProductImage)</strong>
+                    </label>
+                    <div>
+                        <img src="~/assets/img/product/@Html.DisplayFor(model => model.Product.ProductImage)" style="width: 400px; height:auto;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <form method="post" class="card-footer d-flex justify-content-between">
+        <a asp-page="./Index">Back to List</a>
+        <input type="hidden" asp-for="Product.ProductId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> 
+    </form>
+</div>
+

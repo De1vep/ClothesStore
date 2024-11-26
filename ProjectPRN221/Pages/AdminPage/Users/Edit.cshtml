@@ -1,0 +1,70 @@
+﻿@page
+@model ProjectPRN221.Pages.AdminPage.Users.EditModel
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "_AdminLayout";
+}
+    <div class="container-fluid add-form-list">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between">
+                        <div class="header-title">
+                            <h4 class="card-title">Edit User</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" data-toggle="validator">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Name *</label>
+                                        <input type="text" class="form-control" placeholder="Enter Name" asp-for="Fullname" required>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Email *</label>
+                                        <input type="email" class="form-control" placeholder="Enter Email" asp-for="Email" required>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input type="password" class="form-control" placeholder="Enter Password" asp-for="Password">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Confirm Password</label>
+                                        <input type="password" class="form-control" placeholder="Confirm Password" asp-for="ConfirmPassword">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Role *</label>
+                                        <select class="selectpicker form-control" asp-for="Role" data-style="py-0" required>
+                                            <option>Admin</option>
+                                            <option>Customer</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="checkbox d-inline-block mb-3">
+                                        <input type="checkbox" class="checkbox-input mr-2" asp-for="NotifyUserByEmail">
+                                        <label asp-for="NotifyUserByEmail">Notify User by Email</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary mr-2">Save Changes</button>
+                            <a href="@Url.Page("CustomerManagement")" class="btn btn-danger">Cancel</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

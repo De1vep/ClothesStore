@@ -1,0 +1,343 @@
+﻿@page
+@model ProjectPRN221.Pages.Orders.CreateModel
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+@{
+    ViewData["Title"] = "Create Order";
+}
+@{
+    var token = Antiforgery.GetAndStoreTokens(HttpContext).RequestToken;
+}
+
+<div class>
+    <div class="card" style="
+    min-height: 77vh;
+">
+        <div class="card-header">
+            <div class="row" style="
+    padding-left: 30px;
+">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="ProductSearch">Product Search</label>
+                        <div class="row">
+                            <input type="text" id="ProductSearch" class="form-control col-10" oninput="searchProduct()" placeholder="Search for products..." />
+                            <input type="number" id="quantity" class="form-control col-2" placeholder="Qty" min="1" />
+                        </div>
+                        <div id="ProductResults" class="dropdown-menu" style="width: 100%; max-height: 300px; overflow-y: auto;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row" style="
+    padding-left: 30px;
+">
+                <div class="form-group">
+                    <label for="shippingAddress">Shipping Address</label>
+                    <input type="text" id="shippingAddress" class="form-control" required>
+                </div>
+                <div class="form-group ml-3">
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="tel" id="phoneNumber" class="form-control" required>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="SelectedProducts">Selected Products</label>
+                    <ul id="SelectedProducts" class="list-group"></ul>
+                </div>
+                <div id="totalSubtotal" class="mt-3 font-weight-bold"></div>
+                
+            </div>
+        </div>
+        <div class="card-footer">
+            <input type="hidden" id="RequestVerificationToken"
+                   name="__RequestVerificationToken" value="@token">
+            <button id="checkoutButton" class="btn btn-primary mt-3" onclick="checkout()">Checkout</button>
+            <a class="btn badge bg-success mt-3" data-placement="top" asp-page="./Index">Back to List</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    <script>
+
+        let selectedProduct = null;
+        let selectedProducts = {};
+        let currentSelectedIndex = -1;
+
+
+        function checkout() {
+            if (Object.keys(selectedProducts).length === 0) {
+                alert("Please add products to your order before checking out.");
+                return;
+            }
+
+            const orderDetails = Object.entries(selectedProducts).map(([productId, product]) => ({
+                ProductId: parseInt(productId),
+                Quantity: product.quantity,
+                UnitPrice: product.unitPrice
+            }));
+
+            const orderData = {
+                Order: {
+                    UserId: 0, // Replace with actual user ID
+                    OrderDate: new Date().toISOString(),
+                    ShippingAddress: document.getElementById('shippingAddress').value,
+                    PhoneNumber: document.getElementById('phoneNumber').value,
+                    TotalAmount: Object.values(selectedProducts).reduce((sum, product) =>
+                        sum + (product.quantity * product.unitPrice), 0),
+                    OrderStatus: "Paid at Store"
+                },
+                OrderDetails: orderDetails // Note: We're now sending this as an array, not a string
+            };
+
+            console.log("Order data being sent:", orderData);
+
+            fetch('?handler=CreateOrder', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'RequestVerificationToken': document.getElementById('RequestVerificationToken').value
+                },
+                body: JSON.stringify(orderData)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Server response:", data);
+                    if (data.success) {
+                        alert("Order successfully created!");
+                        // Clear the selected products and update the UI
+                        selectedProducts = {};
+                        updateSelectedProductsList();
+                    } else {
+                        console.error("Error details:", data.errors);
+                        alert("Error creating order: " + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert("An error occurred while creating the order.");
+                });
+        }
+        function searchProduct() {
+            const searchTerm = document.getElementById('ProductSearch').value;
+            if (searchTerm.length < 2) {
+                document.getElementById('ProductResults').style.display = 'none';
+                return;
+            }
+
+            fetch(`?handler=SearchProducts&searchTerm=${encodeURIComponent(searchTerm)}`)
+                .then(response => response.json())
+                .then(products => {
+                    const resultsContainer = document.getElementById('ProductResults');
+                    resultsContainer.innerHTML = '';
+
+                    if (products.length > 0) {
+                        resultsContainer.style.display = 'block';
+                    } else {
+                        resultsContainer.style.display = 'none';
+                    }
+
+                    products.forEach((product, index) => {
+                        const item = document.createElement('div');
+                        item.className = 'dropdown-item';
+                        item.setAttribute('data-index', index);
+                        item.setAttribute('data-product-id', product.productId);
+                        item.innerHTML = `
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <img src="/assets/img/product/${product.productImage}" alt="${product.productName}" class="img-thumbnail" style="width: 50px; height: 50px;">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <strong>${product.productName}</strong><br>
+                                            $${product.price.toFixed(2)}
+                                        </div>
+                                    </div>
+                                `;
+                        item.addEventListener('click', function () {
+                            selectProduct(product.productId, product.productName, product.price);
+                        });
+                        resultsContainer.appendChild(item);
+                    });
+
+                    currentSelectedIndex = -1;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function handleKeyNavigation(e) {
+            const results = document.querySelectorAll('#ProductResults .dropdown-item');
+            if (results.length === 0) return;
+
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                currentSelectedIndex = (currentSelectedIndex + 1) % results.length;
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                currentSelectedIndex = (currentSelectedIndex - 1 + results.length) % results.length;
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                if (currentSelectedIndex !== -1) {
+                    const selectedItem = results[currentSelectedIndex];
+                    const productId = selectedItem.getAttribute('data-product-id');
+                    const productName = selectedItem.querySelector('strong').textContent;
+                    const price = parseFloat(selectedItem.textContent.match(/\$(\d+\.\d+)/)[1]);
+                    selectProduct(productId, productName, price);
+                }
+                return;
+            } else {
+                return;
+            }
+
+            results.forEach((item, index) => {
+                if (index === currentSelectedIndex) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        function selectProduct(productId, productName, price) {
+            document.getElementById('ProductSearch').value = productName;
+            selectedProduct = { productId, productName, price };
+            document.getElementById('ProductResults').style.display = 'none';
+            document.getElementById('quantity').focus();
+        }
+
+        function addOrUpdateProduct() {
+            if (!selectedProduct) {
+                alert('Please select a product first.');
+                return;
+            }
+
+            const quantityInput = document.getElementById('quantity');
+            const quantity = parseInt(quantityInput.value);
+
+            if (isNaN(quantity) || quantity <= 0) {
+                alert("Please enter a valid quantity.");
+                return;
+            }
+
+            const productId = selectedProduct.productId;
+
+            if (selectedProducts[productId]) {
+                selectedProducts[productId].quantity += quantity;
+            } else {
+                selectedProducts[productId] = {
+                    productName: selectedProduct.productName,
+                    quantity: quantity,
+                    unitPrice: selectedProduct.price
+                };
+            }
+
+            updateSelectedProductsList();
+
+            document.getElementById('ProductSearch').value = '';
+            quantityInput.value = '';
+            selectedProduct = null;
+            document.getElementById('ProductSearch').focus();
+        }
+
+        function updateSelectedProductsList() {
+            const selectedProductsContainer = document.getElementById('SelectedProducts');
+            selectedProductsContainer.innerHTML = '';
+
+            for (const [productId, product] of Object.entries(selectedProducts)) {
+                const listItem = document.createElement('li');
+                listItem.className = 'list-group-item';
+                const subtotal = product.quantity * product.unitPrice;
+
+                const itemContent = `
+                            <div class="row align-items-center">
+                                <div class="col-md-4">
+                                    <strong>${product.productName}</strong>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-outline-secondary" type="button" onclick="changeQuantity('${productId}', -1)">-</button>
+                                        </div>
+                                        <input type="number" class="form-control text-center" value="${product.quantity}" min="1" onchange="updateQuantity('${productId}', this.value)">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" onclick="changeQuantity('${productId}', 1)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    $${formatNumber(product.unitPrice.toFixed(2))}
+                                </div>
+                                <div class="col-md-2 text-right">
+                                    $${formatNumber(subtotal.toFixed(2))}
+                                </div>
+                                <div class="col-md-1 text-right">
+                                    <button type="button" class="btn btn-danger btn-sm" onclick="removeSelectedProduct('${productId}')">X</button>
+                                </div>
+                            </div>
+                        `;
+
+                listItem.innerHTML = itemContent;
+                selectedProductsContainer.appendChild(listItem);
+            }
+
+            updateTotalSubtotal();
+        }
+
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        function changeQuantity(productId, change) {
+            const newQuantity = selectedProducts[productId].quantity + change;
+            if (newQuantity > 0) {
+                selectedProducts[productId].quantity = newQuantity;
+                updateSelectedProductsList();
+            }
+        }
+
+        function updateQuantity(productId, newQuantity) {
+            newQuantity = parseInt(newQuantity);
+            if (newQuantity > 0) {
+                selectedProducts[productId].quantity = newQuantity;
+                updateSelectedProductsList();
+            } else {
+                removeSelectedProduct(productId);
+            }
+        }
+
+        function removeSelectedProduct(productId) {
+            delete selectedProducts[productId];
+            updateSelectedProductsList();
+        }
+
+        function updateTotalSubtotal() {
+            const totalSubtotal = Object.values(selectedProducts).reduce((sum, product) => {
+                return sum + (product.quantity * product.unitPrice);
+            }, 0);
+
+            const totalSubtotalElement = document.getElementById('totalSubtotal');
+            totalSubtotalElement.textContent = `Total Subtotal: $${formatNumber(totalSubtotal.toFixed(2))}`;
+        }
+
+        // Event Listeners
+        document.getElementById('ProductSearch').addEventListener('input', searchProduct);
+        document.getElementById('ProductSearch').addEventListener('keydown', handleKeyNavigation);
+        document.getElementById('quantity').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                addOrUpdateProduct();
+            }
+        });
+    </script>
+
+    <style>
+        .dropdown-item.active {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+}

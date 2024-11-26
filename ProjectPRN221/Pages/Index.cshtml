@@ -1,0 +1,109 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<main class="container home">
+    <!-- Slideshow -->
+    <div class="home__container">
+        <div class="slideshow">
+            <div class="slideshow__inner">
+                <div class="slideshow__item">
+                    <a href="#!" class="slideshow__link">
+                        <picture>
+                            <source media="(max-width: 767.98px)"
+                                    srcset="~/assets/img/slideshow/item-1-md.jpg" />
+                            <img src="~/assets/img/slideshow/item-1.jpg"
+                                 alt=""
+                                 class="slideshow__img" />
+                        </picture>
+                    </a>
+                </div>
+            </div>
+
+            <div class="slideshow__page">
+                <span class="slideshow__num">1</span>
+                <span class="slideshow__slider"></span>
+                <span class="slideshow__num">5</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Browse Categories -->
+    <section class="home__container">
+        <div class="home__row">
+            <h2 class="home__heading">Browse Categories</h2>
+        </div>
+        <div class="home__cate row row-cols-3 row-cols-md-1">
+            @foreach (var category in Model.Categories)
+            {
+                <div class="col">
+                    <a href="javascript:void(0);" class="category-item" data-category-id="@category.CategoryId">
+                        <article class="cate-item">
+                            <img src="~/assets/img/category-item/item-@{@category.CategoryId}.jpg" alt="" class="cate-item__thumb" />
+                            <div class="cate-item__info">
+                                <h3 class="cate-item__title">@category.CategoryName</h3>
+                                <p class="cate-item__desc">Category description here</p>
+                            </div>
+                        </article>
+                    </a>
+                </div>
+            }
+        </div>
+    </section>
+
+    <!-- Browse Products -->
+    <section class="home__container">
+        <div class="home__row">
+            <h2 class="home__heading">Total LavAzza 1320</h2>
+            <div class="filter__form-group">
+                <div class="filter__form-text-input">
+                    <input type="text" name="searchproductname" id="searchproductname" placeholder="Search product name" placeholder="Search brand name" class="filter__form-input">
+                    <img src="./assets/icons/search.svg" alt="" class="filter__form-input-icon icon">
+                </div>
+            </div>
+        </div>
+
+        <div id="product-list" class="row row-cols-5 row-cols-lg-2 row-cols-sm-1 g-3">
+            @foreach (var item in Model.Product)
+            {
+                <div class="col">
+                    <article class="product-card">
+                        <div class="product-card__img-wrap">
+                            <a asp-page="/Products/DetailsProductToCart" asp-route-id="@item.ProductId">
+
+@*                                                                 <img src="@Html.DisplayFor(modelItem => item.ProductImage)"
+                            alt=""
+                            class="product-card__thumb" /> *@
+
+                                <img src="~/assets/img/product/@Html.DisplayFor(modelItem => item.ProductImage)"
+                                     alt=""
+                                     class="product-card__thumb" />
+                            </a>
+                            <button class="like-btn product-card__like-btn">
+                                <img src="~/assets/icons/heart.svg"
+                                     alt=""
+                                     class="like-btn__icon icon" />
+                                <img src="~/assets/icons/heart-red.svg"
+                                     alt=""
+                                     class="like-btn__icon--liked" />
+                            </button>
+                        </div>
+                        <h3 class="product-card__title">
+                            <a asp-page="/Products/DetailsProductToCart" asp-route-id="@item.ProductId">@Html.DisplayFor(modelItem => item.ProductName)</a>
+                        </h3>
+                        <p class="product-card__brand">Crunk</p>
+                        <div class="product-card__row">
+                            <span class="product-card__price">$@item.Price.ToString("N0")</span>
+                            <img src="~/assets/icons/star.svg"
+                                 alt=""
+                                 class="product-card__star" />
+                            <span class="product-card__score">4.3</span>
+                        </div>
+                    </article>
+                </div>
+            }
+        </div>
+    </section>
+</main>

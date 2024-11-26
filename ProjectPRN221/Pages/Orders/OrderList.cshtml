@@ -1,0 +1,367 @@
+﻿@page "/Orders/OrderList/{status:int}"
+@model OrderListModel
+@{
+    ViewData["Title"] = "OrderList";
+}
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/popup.css">
+</head>
+
+<main class="checkout-page">
+    <div class="container">
+        <!-- Breadcrumbs -->
+        <div class="checkout-container">
+            <ul class="breadcrumbs checkout-page__breadcrumbs">
+                <li>
+                    <a href="/" class="breadcrumbs__link">
+                        Home
+                        <img src="/assets/icons/arrow-right.svg" alt="" />
+                    </a>
+                </li>
+                <li>
+                    <a href="/Orders/OrderList/0" class="breadcrumbs__link">
+                        List Of Orders
+                        <img src="/assets/icons/arrow-right.svg" alt="" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="checkout-container">
+            <div class="row gy-xl-3">
+                <div class="col-4 col-xl-12">
+                    <div class="cart-info" style="background-color: lightyellow" >
+                        <div class="cart-info__row">
+                            <span>YOUR ORDER LIST</span>
+                        </div>
+                         <div class="cart-info__row">
+                            <span>-----------------------------------------------</span>
+                        </div>
+                        <div class="cart-info__row">
+                            <span>You can edit or remove your order when it is pending, not in delivering time.</span>
+                        </div>
+                        <div class="cart-info__row">
+                            <span>You will be able to receive your clothes after 2-3 days</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-8 col-xl-12">    
+                    <div class="headerrrr">
+                        <nav class="navbarr">
+                            <ul class="navbarr__menu">
+                                <li class="navbarr__item">
+                                    <a asp-page="/Orders/OrderList" asp-route-status="0" class="navbarr__link"><i data-feather="home"></i><span>All</span> </a>
+                                </li>
+                                <li class="navbar__item">
+                                    <a asp-page="/Orders/OrderList" asp-route-status="1" class="navbarr__link"><i data-feather="message-square"></i><span>Pending</span></a>
+                                </li>
+                                <li class="navbar__item">
+                                    <a asp-page="/Orders/OrderList" asp-route-status="2" class="navbarr__link"><i data-feather="users"></i><span>Shipping</span></a>
+                                </li>
+                                <li class="navbar__item">
+                                    <a asp-page="/Orders/OrderList" asp-route-status="3" class="navbarr__link"><i data-feather="folder"></i><span>Delivered</span></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    @*<div class="nav-bar">
+                        <a asp-page="/Orders/OrderList" asp-route-status="0" class="nav-item active">All</a>
+                        <a asp-page="/Orders/OrderList" asp-route-status="1" class="nav-item">Pending</a>
+                        <a asp-page="/Orders/OrderList" asp-route-status="2" class="nav-item">Shipping</a>
+                        <a asp-page="/Orders/OrderList" asp-route-status="3" class="nav-item">Delivered</a>
+                    </div>*@
+                    @foreach (var item in Model.OrderList)
+                    {
+                    <div class="cart-info" >
+                            <div class="cart-info__list" >
+                                    <article class="cart-item">
+                                        <a asp-page-handler="Detail" asp-route-id="@item.OrderId"> 
+                                        </a>
+                                        <form method="post" asp-page-handler="Edit">
+                                            <div class="cart-item__content">
+                                                <div class="cart-item__content-left">
+                                                    <p class="cart-item__price-wrap">
+                                                        @item.PhoneNumber |
+                                                    <p class="cart-item__price-wrap">
+                                                            @if (item.OrderStatus == "Pending")
+                                                            {
+                                                            <span style="color:red">@item.OrderStatus</span>
+                                                            }
+                                                            else if (item.OrderStatus == "Delivered")
+                                                            {
+                                                            <span style="color:forestgreen">@item.OrderStatus</span>
+                                                            }
+                                                            else
+                                                            {
+                                                            <span style="color:deepskyblue">Shipping</span>
+                                                            }
+                                                    </p>
+
+                                                        @if (item.OrderStatus != "Pending")
+                                                        {
+                                                            <h3 class="cart-item__title">
+                                                                <span>Order Date: </span><a>@item.OrderDate</a>
+                                                            </h3>
+                                                            <h3 class="cart-item__title">
+                                                                <span>Phone Number: </span><a>@item.PhoneNumber</a>
+                                                            </h3>
+                                                            <h3 class="cart-item__title">
+                                                                <span>Shipping Address: </span><a>@item.ShippingAddress</a>
+                                                            </h3>
+                                                        }
+                                                        else
+                                                        {
+                                                            <h3 class="cart-item__title">
+                                                                <span>Order Date: </span><a>@item.OrderDate</a>
+                                                            </h3>
+                                                            <h3 class="cart-item__title">
+                                                                <span>Phone Number: </span><input type="text" value="@item.PhoneNumber" name="phone">
+                                                            </h3>
+                                                            <h3 class="cart-item__title">
+                                                                <span>Shipping Address: </span><input type="text" value="@item.ShippingAddress" name="address">
+                                                            </h3>
+                                                            <input type="hidden" value="@item.OrderId" name="orderID" />
+                                                            <input type="hidden" value="@item.UserId" name="userID" />
+                                                            <input type="hidden" value="@item.UserId" name="userID" />
+                                                        }
+                                                </div>
+
+                                            @if (@item.OrderStatus == "Pending")
+                                            {
+                                                <div class="cart-item__content-right" style="margin-left: 240px">
+                                                        <p class="cart-item__total-price">$@item.TotalAmount</p>
+                                                        <div class="cart-item__ctrl">
+                                                        
+                                                                <input type="submit" value="Edit" class="btn btn-danger" />
+                                      
+                                                            <a class="cart-item__ctrl-btn" asp-page="./OrderHistoryDetail" asp-route-id="@item.OrderId">
+                                                                <img src="/assets/icons/heart.svg" alt="" />
+                                                                More Detail
+                                                            </a>
+                                                        </div>
+                                                </div>
+                                            }else
+                                            {
+                                                <div class="cart-item__content-right" style="margin-left: 360px">
+                                                    <p class="cart-item__total-price">$@item.TotalAmount</p>
+                                                    <div class="cart-item__ctrl">
+                                                        
+                                                        <a class="cart-item__ctrl-btn" asp-page="./OrderHistoryDetail" asp-route-id="@item.OrderId">
+                                                            <img src="/assets/icons/heart.svg" alt="" />
+                                                            More Detail
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+                                        </form>
+                                    </article>
+                                
+                            </div>
+                            
+                        </div>
+                        }
+                    <div class="cart-info__bottom d-md-none">
+                        <div class="row">
+                            <div class="col-8 col-xxl-7">
+                                <div class="cart-info__continue">
+                                    <a href="/" class="cart-info__continue-link">
+                                        <img class="cart-info__continue-icon icon" src="/assets/icons/arrow-down-2.svg" alt="" />
+                                        Continue Shopping
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+//for navbar
+<style>
+  /* Converted Sass to CSS */
+  :root {
+    --borderRadius: 10px;
+    --spacer: 1rem;
+    --primary: #C4151C;
+    --text: #fff;
+    --linkHeight: calc(var(--spacer) * 3.5);
+    --timing: 250ms;
+    --linkWidth: 10rem;
+  }
+
+  bodyyy {
+    background: #000 url(https://unsplash.it/1600/1000/?random);
+    background-size: cover;
+    background-position: center;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .headerrrr {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #75AAE7;
+    color: var(--text);
+    padding: 0 calc(var(--spacer) * 2);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.03);
+    height: 6rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 3rem;
+  }
+
+  .navbarr {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .navbarr__menu {
+    position: relative;
+    display: flex;
+  }
+
+  .navbarr__link {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    align-items: center;
+    justify-content: center;
+    height: var(--linkHeight);
+    width: var(--linkWidth);
+    color: var(--text);
+    transition: var(--timing) ease all;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .navbarr__link:hover {
+    color: var(--primary);
+  }
+
+  .navbarr__link svg {
+    transition: var(--timing) ease all;
+  }
+
+  .navbarr__link:hover svg {
+    stroke: var(--primary);
+  }
+
+  .navbarr__link:hover span {
+    opacity: 1;
+    transform: translate(0);
+  }
+
+  .navbarr__item:last-child:before {
+    content: '';
+    position: absolute;
+    left: -8rem;
+    margin-left: calc(var(--linkWidth) / 2);
+    bottom: -1.25rem;
+    height: 0.5rem;
+    width: 2px;
+    background: var(--primary);
+    transition: var(--timing) ease all;
+    box-shadow: 0 -0.5rem var(--primary), 0 -0.5rem var(--primary), 0 0 3rem 0.5rem rgba(255, 255, 255, 0.2), 2rem 0 0 rgba(255, 255, 255, 0.2), -3rem 0 0 rgba(255, 255, 255, 0.2), 0 0 0.2rem 1px rgba(255, 255, 255, 0.2), -1.5rem 0 0 rgba(255, 255, 255, 0.2), 1.5rem 0 0 rgba(255, 255, 255, 0.2), 0 0 0.2rem 1px rgba(255, 255, 255, 0.2);
+  }
+
+  /* Add further styling and animations as needed */
+
+</style> 
+
+<style>
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 400px;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+    input[type="text"], input[type="tel"] {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0 10px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    .buttonn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        margin: 10px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+</style>
+
+<script>
+    var modal = document.getElementById("myModal");
+    var btn = document.getElementById("openModalBtn");
+    var span = document.getElementsByClassName("close")[0];
+
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    document.getElementById("shippingForm").onsubmit = function (event) {
+        event.preventDefault();
+        alert("Form submitted!");
+        modal.style.display = "none";
+    }
+</script>
+
+

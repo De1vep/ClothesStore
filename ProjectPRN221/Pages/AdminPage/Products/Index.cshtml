@@ -1,0 +1,108 @@
+﻿@page
+@model ProjectPRN221.Pages.AdminPage.Products.IndexModel
+@{
+}
+@{
+    ViewData["Title"] = "List of Product";
+}
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">   
+                    <a asp-page="Create" class="btn btn-outline-primary mt-2">Create New</a>
+                </div>
+               
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form method="get">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="ProductName">Product Name:</label>
+                                        <input class="form-control" type="text" id="ProductName" name="ProductName" value="@Model.ProductName" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="MinUnitPrice">Min Unit Price:</label>
+                                        <input class="form-control" type="number" min="0" id="MinUnitPrice" name="MinUnitPrice" value="@Model.MinUnitPrice" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="MaxUnitPrice">Max Unit Price:</label>
+                                        <input class="form-control" type="number" min="0" id="MaxUnitPrice" name="MaxUnitPrice" value="@Model.MaxUnitPrice" />
+                                    </div>
+                                </div>
+                                <hr />
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </form>
+
+                            <hr />
+                            <table class="table table-striped dataTable mt-4">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Product[0].ProductId)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Product[0].ProductName)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Product[0].Price)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Product[0].Quantity)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Product[0].Category)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Product[0].ProductImage)
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Product)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ProductId)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ProductName)
+                                            </td>
+                          
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Price)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Quantity)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                                            </td>
+                                            <td>
+                                                <img src="~/assets/img/product/@Html.DisplayFor(modelItem => item.ProductImage)" style="object-fit: cover;" class="img-thumbnail avatar-100 rounded" />
+
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-sm badge bg-success" asp-page="./Edit" asp-route-id="@item.ProductId">Edit</a>
+                                                <a class="btn btn-sm badge bg-light" asp-page="./Details" asp-route-id="@item.ProductId">Details</a>
+                                                <a class="btn btn-sm badge bg-secondary" asp-page="./Delete" asp-route-id="@item.ProductId">Delete</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                  
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
